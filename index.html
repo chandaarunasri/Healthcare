@@ -8,9 +8,16 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <style>
+    /* Applying the requested color globally */
+    body { 
+        color: #072635 !important; 
+    }
+    
+    /* Ensuring Tailwind's text-gray classes don't override the primary color where not intended */
+    .text-custom-main { color: #072635; }
+
     .custom-scrollbar::-webkit-scrollbar { width: 4px; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
-    /* Styles to ensure the table columns stay aligned */
     .diagnostic-table { table-layout: fixed; width: 100%; }
     .col-diag { width: 35%; }
     .col-desc { width: 45%; }
@@ -18,7 +25,7 @@
 </style>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100" style="color: #072635;">
 
 <header class="bg-white mx-6 mt-4 px-8 py-4 rounded-full shadow-sm flex items-center justify-between">
 
@@ -26,13 +33,14 @@
   <img src="/assests/TestLogo.jpg" alt="logo">
   </div>
 
-  <nav class="hidden md:flex items-center gap-10 text-gray-600 font-medium">
+  <nav class="hidden md:flex items-center gap-10 font-medium">
     <div class="flex items-center gap-2 cursor-pointer">
       <i class="bi bi-house"></i>
       <span>Overview</span>
     </div>
 
-    <div class="flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-200 text-emerald-900 font-semibold cursor-pointer">
+    <div class="flex items-center gap-2 px-5 py-2 rounded-full font-semibold cursor-pointer" 
+      style="background-color: #01F0D0;">
       <i class="bi bi-people"></i>
       <span>Patients</span>
     </div>
@@ -54,16 +62,16 @@
   </nav>
 
   <div class="flex items-center gap-2">
-    <img src="/assests/Layer 1-page-1.jpg" class="w-10 h-10 rounded-full">
+    <img src="/assests/sr.jpg" class="w-10 h-10 rounded-full">
 
     <div class="text-sm leading-tight">
-      <p class="font-semibold text-gray-900">Dr. Jose Simmons</p>
-      <p class="text-xs text-gray-400">General Practitioner</p>
+      <p class="font-semibold">Dr. Jose Simmons</p>
+      <p class="text-xs opacity-70">General Practitioner</p>
     </div>
 
     <div class="flex gap-2 ml-4 border-l pl-4">
-        <i class="bi bi-gear text-xl text-gray-400 cursor-pointer"></i>
-        <i class="bi bi-three-dots-vertical text-xl text-gray-400 cursor-pointer"></i>
+        <i class="bi bi-gear text-xl opacity-40 cursor-pointer"></i>
+        <i class="bi bi-three-dots-vertical text-xl opacity-40 cursor-pointer"></i>
     </div>
   </div>
 
@@ -72,138 +80,118 @@
 
 <div class="grid grid-cols-12 gap-6 p-6">
 
-<aside class="col-span-1 md:col-span-3 bg-white rounded-2xl p-6 shadow-sm">
+<aside class="col-span-1 md:col-span-3 bg-white rounded-2xl p-6 shadow-sm h-fit">
 
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-lg font-bold">Patients</h2>
-    <i class="bi bi-search text-gray-400"></i>
+    <i class="bi bi-search opacity-40"></i>
   </div>
 
-  <div class="max-h-[800px] overflow-y-auto space-y-2 pr-2 custom-scrollbar">
+  <div class="max-h-[650px] overflow-y-auto space-y-2 pr-2 custom-scrollbar">
 
-    
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/frst.jpg" class="w-10 h-10 rounded-full">
         <div>
-          <p class="font-semibold text-sm text-gray-900">Emily Williams</p>
-          <p class="text-xs text-gray-500">Female, 18</p>
+          <p class="font-semibold text-sm">Emily Williams</p>
+          <p class="text-xs opacity-60">Female, 18</p>
         </div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
+    
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 1-page-1.jpg" class="w-10 h-10 rounded-full">
         <div>
-          <p class="font-semibold text-sm text-gray-900">Ryan Johnson</p>
-          <p class="text-xs text-gray-500">Male, 45</p>
+          <p class="font-semibold text-sm">Ryan Johnson</p>
+          <p class="text-xs opacity-60">Male, 45</p>
         </div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
+
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 3.jpg" class="w-10 h-10 rounded-full">
         <div>
-          <p class="font-semibold text-sm text-gray-900">Brandon Mitchell</p>
-          <p class="text-xs text-gray-500">Male, 36</p>
+          <p class="font-semibold text-sm">Brandon Mitchell</p>
+          <p class="text-xs opacity-60">Male, 36</p>
         </div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
+
     <div class="flex items-center justify-between p-3 rounded-xl bg-emerald-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 2.jpg" class="w-10 h-10 rounded-full">
         <div>
-          <p class="font-semibold text-sm text-gray-900">Jessica Taylor</p>
-          <p class="text-xs text-gray-500">Female, 28</p>
+          <p class="font-semibold text-sm">Jessica Taylor</p>
+          <p class="text-xs opacity-60">Female, 28</p>
         </div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
+
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 6.jpg" class="w-10 h-10 rounded-full">
-        <div>
-          <p class="font-semibold text-sm text-gray-900">Samantha Johnson</p>
-          <p class="text-xs text-gray-500">Female, 56</p>
-        </div>
+        <div><p class="font-semibold text-sm">Samantha Johnson</p><p class="text-xs opacity-60">Female, 56</p></div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 12.jpg" class="w-10 h-10 rounded-full">
-        <div>
-          <p class="font-semibold text-sm text-gray-900">Ashley Martinez</p>
-          <p class="text-xs text-gray-500">Female, 54</p>
-        </div>
+        <div><p class="font-semibold text-sm">Ashley Martinez</p><p class="text-xs opacity-60">Female, 54</p></div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 10.jpg" class="w-10 h-10 rounded-full">
-        <div>
-          <p class="font-semibold text-sm text-gray-900">Olivia Brown</p>
-          <p class="text-xs text-gray-500">Female, 32</p>
-        </div>
+        <div><p class="font-semibold text-sm">Olivia Brown</p><p class="text-xs opacity-60">Female, 32</p></div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 9.jpg" class="w-10 h-10 rounded-full">
-        <div>
-          <p class="font-semibold text-sm text-gray-900">Tyler Davis</p>
-          <p class="text-xs text-gray-500">Male, 19</p>
-        </div>
+        <div><p class="font-semibold text-sm">Tyler Davis</p><p class="text-xs opacity-60">Male, 19</p></div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 4.jpg" class="w-10 h-10 rounded-full">
-        <div>
-          <p class="font-semibold text-sm text-gray-900">Kevin Anderson</p>
-          <p class="text-xs text-gray-500">Male, 30</p>
-        </div>
+        <div><p class="font-semibold text-sm">Kevin Anderson</p><p class="text-xs opacity-60">Male, 30</p></div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 5.jpg" class="w-10 h-10 rounded-full">
-        <div>
-          <p class="font-semibold text-sm text-gray-900">Dylan Thompson</p>
-          <p class="text-xs text-gray-500">Male, 36</p>
-        </div>
+        <div><p class="font-semibold text-sm">Dylan Thompson</p><p class="text-xs opacity-60">Male, 36</p></div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/Layer 7.jpg" class="w-10 h-10 rounded-full">
-        <div>
-          <p class="font-semibold text-sm text-gray-900">Nathan Evans</p>
-          <p class="text-xs text-gray-500">Male, 58</p>
-        </div>
+        <div><p class="font-semibold text-sm">Nathan Evans</p><p class="text-xs opacity-60">Male, 58</p></div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
     <div class="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 cursor-pointer">
       <div class="flex items-center gap-3">
         <img src="/assests/last.jpg" class="w-10 h-10 rounded-full">
-        <div>
-          <p class="font-semibold text-sm text-gray-900">Mike Nolan</p>
-          <p class="text-xs text-gray-500">Male, 31</p>
-        </div>
+        <div><p class="font-semibold text-sm">Mike Nolan</p><p class="text-xs opacity-60">Male, 31</p></div>
       </div>
-      <span class="text-xl text-gray-400">•••</span>
+      <span class="text-xl opacity-40">•••</span>
     </div>
-    </div>
+  </div>
 </aside>
+
 <main class="col-span-12 md:col-span-6 space-y-6">
 
 <div class="bg-purple-50 rounded-2xl p-6 shadow-sm">
@@ -212,8 +200,8 @@
   <div class="flex flex-col md:flex-row gap-8">
     <div class="flex-1">
       <div class="flex justify-between items-center mb-4">
-        <h3 class="font-bold text-gray-800">Blood Pressure</h3>
-        <span class="text-sm text-gray-500">Last 6 months <i class="bi bi-chevron-down"></i></span>
+        <h3 class="font-bold">Blood Pressure</h3>
+        <span class="text-sm opacity-70">Last 6 months <i class="bi bi-chevron-down"></i></span>
       </div>
       <div class="h-48">
           <canvas id="bpChart"></canvas>
@@ -226,7 +214,7 @@
             <span class="w-2 h-2 bg-pink-500 rounded-full"></span> Systolic
         </p>
         <p class="text-3xl font-extrabold">160</p>
-        <p class="text-xs text-gray-700 mt-1 font-bold flex items-center gap-1">
+        <p class="text-xs mt-1 font-bold flex items-center gap-1">
             <i class="bi bi-caret-up-fill"></i> Higher than Average
         </p>
       </div>
@@ -235,7 +223,7 @@
             <span class="w-2 h-2 bg-indigo-600 rounded-full"></span> Diastolic
         </p>
         <p class="text-3xl font-extrabold">78</p>
-        <p class="text-xs text-gray-700 mt-1 font-bold flex items-center gap-1">
+        <p class="text-xs mt-1 font-bold flex items-center gap-1">
             <i class="bi bi-caret-down-fill"></i> Lower than Average
         </p>
       </div>
@@ -250,16 +238,16 @@
       </div>
       <p class="text-sm font-medium">Respiratory Rate</p>
       <p class="text-2xl font-bold">20 bpm</p>
-      <p class="text-xs text-gray-500 mt-4">Normal</p>
+      <p class="text-xs opacity-70 mt-4">Normal</p>
     </div>
 
-    <div class="bg-[#FFE6E9] rounded-2xl  p-6 shadow-sm">
+    <div class="bg-[#FFE6E9] rounded-2xl p-6 shadow-sm">
       <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4">
         <img src="/assests/temperature.jpg" alt="Temp" class="w-10 h-10">
       </div>
       <p class="text-sm font-medium">Temperature</p>
       <p class="text-2xl font-bold">98.6°F</p>
-      <p class="text-xs text-gray-500 mt-4">Normal</p>
+      <p class="text-xs opacity-70 mt-4">Normal</p>
     </div>
 
     <div class="bg-[#FFE6F1] rounded-2xl p-6 shadow-sm">
@@ -268,7 +256,7 @@
       </div>
       <p class="text-sm font-medium">Heart Rate</p>
       <p class="text-2xl font-bold">78 bpm</p>
-      <p class="text-xs text-gray-700 mt-4 font-medium flex items-center gap-1">
+      <p class="text-xs mt-4 font-medium flex items-center gap-1">
         <i class="bi bi-caret-down-fill"></i> Lower than Average
       </p>
     </div>
@@ -280,7 +268,7 @@
   <div class="overflow-hidden">
     <table class="diagnostic-table text-left text-sm border-collapse">
       <thead>
-        <tr class="bg-gray-50 text-gray-800">
+        <tr class="bg-gray-50">
           <th class="px-5 py-4 font-bold rounded-l-full col-diag">Problem/Diagnosis</th>
           <th class="px-5 py-4 font-bold col-desc">Description</th>
           <th class="px-5 py-4 font-bold rounded-r-full col-stat text-right pr-10">Status</th>
@@ -290,30 +278,30 @@
 
     <div class="max-h-64 overflow-y-auto custom-scrollbar mt-2">
       <table class="diagnostic-table text-left text-sm border-collapse">
-        <tbody class="text-gray-900">
+        <tbody>
           <tr class="border-b border-gray-100">
             <td class="px-5 py-5 col-diag font-medium">Hypertension</td>
-            <td class="px-5 py-5 col-desc text-gray-500">Chronic high blood pressure</td>
+            <td class="px-5 py-5 col-desc opacity-70">Chronic high blood pressure</td>
             <td class="px-5 py-5 col-stat text-right pr-10">Under Observation</td>
           </tr>
           <tr class="border-b border-gray-100">
             <td class="px-5 py-5 col-diag font-medium">Type 2 Diabetes</td>
-            <td class="px-5 py-5 col-desc text-gray-500">Insulin resistance and elevated sugar</td>
+            <td class="px-5 py-5 col-desc opacity-70">Insulin resistance and elevated sugar</td>
             <td class="px-5 py-5 col-stat text-right pr-10">Cured</td>
           </tr>
           <tr class="border-b border-gray-100">
             <td class="px-5 py-5 col-diag font-medium">Asthma</td>
-            <td class="px-5 py-5 col-desc text-gray-500">Recurrent episodes of bronchial constriction</td>
+            <td class="px-5 py-5 col-desc opacity-70">Recurrent episodes of bronchial constriction</td>
             <td class="px-5 py-5 col-stat text-right pr-10">Inactive</td>
           </tr>
           <tr class="border-b border-gray-100">
             <td class="px-5 py-5 col-diag font-medium">Osteoarthritis</td>
-            <td class="px-5 py-5 col-desc text-gray-500">Degenerative joint disease</td>
+            <td class="px-5 py-5 col-desc opacity-70">Degenerative joint disease</td>
             <td class="px-5 py-5 col-stat text-right pr-10">Untreated</td>
           </tr>
           <tr>
             <td class="px-5 py-5 col-diag font-medium">Allergic Rhinitis</td>
-            <td class="px-5 py-5 col-desc text-gray-500">Seasonal allergies causing congestion</td>
+            <td class="px-5 py-5 col-desc opacity-70">Seasonal allergies causing congestion</td>
             <td class="px-5 py-5 col-stat text-right pr-10">Active</td>
           </tr>
         </tbody>
@@ -329,33 +317,35 @@
   <div class="bg-white rounded-2xl p-8 shadow-sm">
     <div class="flex flex-col items-center mb-8">
       <img src="/assests/Layer 2.jpg" class="rounded-full w-32 h-32 object-cover mb-4">
-      <h2 class="text-2xl font-extrabold text-gray-900">Jessica Taylor</h2>
+      <h2 class="text-2xl font-extrabold">Jessica Taylor</h2>
     </div>
 
     <div class="space-y-6 text-sm">
       <div class="flex items-center gap-4">
         <div class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center"><i class="bi bi-calendar-event"></i></div>
-        <div><p class="text-xs text-gray-400">Date Of Birth</p><p class="font-bold">August 23, 1996</p></div>
+        <div><p class="text-xs opacity-60">Date Of Birth</p><p class="font-bold">August 23, 1996</p></div>
       </div>
       <div class="flex items-center gap-4">
         <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center"><i class="bi bi-gender-female"></i></div>
-        <div><p class="text-xs text-gray-400">Gender</p><p class="font-bold">Female</p></div>
+        <div><p class="text-xs opacity-60">Gender</p><p class="font-bold">Female</p></div>
       </div>
       <div class="flex items-center gap-4">
         <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center"><i class="bi bi-telephone"></i></div>
-        <div><p class="text-xs text-gray-400">Contact Info</p><p class="font-bold">(415) 555-1234</p></div>
+        <div><p class="text-xs opacity-60">Contact Info</p><p class="font-bold">(415) 555-1234</p></div>
       </div>
       <div class="flex items-center gap-4">
         <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center"><i class="bi bi-telephone"></i></div>
-        <div><p class="text-xs text-#F6F7F8">Emergency Contacts</p><p class="font-bold">(415) 555-5678</p></div>
+        <div><p class="text-xs opacity-60">Emergency Contacts</p><p class="font-bold">(415) 555-5678</p></div>
       </div>
       <div class="flex items-center gap-4">
         <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center"><i class="bi bi-shield-check"></i></div>
-        <div><p class="text-xs text-gray-400">Insurance Provider</p><p class="font-bold">Sunrise Health Assurance</p></div>
+        <div><p class="text-xs opacity-60">Insurance Provider</p><p class="font-bold">Sunrise Health Assurance</p></div>
       </div>
     </div>
-    <button class="mt-8 w-full bg-emerald-300 hover:bg-emerald-400 text-gray-900 font-bold py-3 rounded-full transition">Show All Information</button>
-  </div>
+    <button class="mt-8 w-full font-bold py-3 rounded-full transition" style="background-color: #01F0D0; color: #072635;">
+        Show All Information
+    </button>
+</div>
 
   <div class="bg-white rounded-2xl p-6 shadow-sm">
     <h3 class="text-lg font-bold mb-4">Lab Results</h3>
@@ -364,7 +354,7 @@
         <span class="text-sm font-medium">Blood Tests</span><i class="bi bi-download"></i>
       </div>
       <div class="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg cursor-pointer">
-        <span class="text-sm font-medium">CT Scans</span><i class="bi bi-download text-#F6F7F8"></i>
+        <span class="text-sm font-medium">CT Scans</span><i class="bi bi-download"></i>
       </div>
       <div class="flex justify-between items-center px-4 py-3 hover:bg-gray-50 rounded-lg cursor-pointer group">
         <span class="text-sm font-medium">Radiology Reports</span><i class="bi bi-download"></i>
@@ -412,8 +402,15 @@
             maintainAspectRatio: false,
             plugins: { legend: { display: false } },
             scales: { 
-                y: { min: 60, max: 180, grid: { color: '#F3E8FF' } },
-                x: { grid: { display: false } }
+                y: { 
+                  min: 60, max: 180, 
+                  grid: { color: '#F3E8FF' },
+                  ticks: { color: '#072635' } 
+                },
+                x: { 
+                  grid: { display: false },
+                  ticks: { color: '#072635' }
+                }
             }
         }
     });
